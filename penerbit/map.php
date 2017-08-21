@@ -6,12 +6,13 @@
    <script type="text/javascript" src="../bootstrap/js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="../bootstrap/js/jquery.dataTables.js"></script>
-<script type="text/javascript" src="../bootstrap/js/dataTables.bootstrap.js"></script>  
+<script type="text/javascript" src="../bootstrap/js/dataTables.bootstrap.js"></script>
+<link rel="stylesheet" href="../bootstrap/css/style.css">  
  </head>  
    <body>  
    <div class="row">
   <div class="col-md-12">
-    <div class="panel panel-success">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <center><h4>PETA LOKASI PENERBIT</h4></center>
         </div>
