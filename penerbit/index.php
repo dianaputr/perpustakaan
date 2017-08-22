@@ -41,7 +41,7 @@ $query->execute();
 			 <div class="panel-body">
 			    <a href="create.php" class="btn btn-primary"><i class="glyphicon glyphicon-plus "></i> Tambah Penerbit Buku</a>
 			    <a class="btn btn-primary" href="../home2.php"><i class="glyphicon glyphicon-home"></i> Home </a>
-			    <a class="btn btn-primary" href="map.php"><i class="glyphicon glyphicon-map-marker"></i> Lihat Maps </a>
+			    <a class="btn btn-primary" href="maps.php"><i class="glyphicon glyphicon-map-marker"></i> Lihat Maps </a>
 			    <div>&nbsp;</div>
 			    <div class="col-sm-10">
 				<table class="table table-bordered table-stripped table-hover">

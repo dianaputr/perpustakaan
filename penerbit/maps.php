@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<header><title>Maps DB</title></header> 
+<header><title>Maps Penerbit Buku</title></header> 
 
 <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
    <link rel="stylesheet" type="text/css" href="../bootstrap/css/dataTables.bootstrap.css">
@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../bootstrap/css/style.css"> 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbkig6HjyecypiKEExAwT3f69fJBvLXk0&sensor=false" type="text/javascript"></script>
     <script>
-    function initialize(a,b,c) {
+    function initialize(a,b,c,d) {
   var myLatlng = new google.maps.LatLng(a, b);
   var mapOptions = {
     zoom: 15,
@@ -20,22 +20,24 @@
   var marker = new google.maps.Marker({
     position: myLatlng,
     map: map,
-    title:c});
+    title: d});
 }
     </script>
 <style>
       html, body, #map-canvas {
         
         height: 90%;
-        padding: 10px;
+        padding: 5px;
         
       }
     </style>
 <body>
 <div class="panel panel-primary">
-      <div class="panel-heading"><h1>Maps DB</h1>
+      <div class="panel-heading"><h1>Maps Penerbit Buku</h1>
       </div>
   </div>
+  <div class="row">
+  <div class="col-sm-4">
  <table border="2">
   <thead>
    <td>ID</td><td>Nama</td><td>Latitude</td><td>Longitude</td><td>Tool</td>
@@ -46,19 +48,23 @@
 
 <?php
 include 'koneksi.php';
+
 $query = $db->prepare("SELECT * FROM penerbit");
  $query->execute();
 foreach ($query->fetchAll() as $data) {
 
  $id = $data['id'];
  $nama = $data['nama'];
+ $alamat = $data['alamat'];
  $lat = $data['lat'];
  $lng = $data['lng'];
- echo "<tr><td>$id</td><td>$nama</td><td>$lat</td><td>$lng</td><td><button onclick='initialize($lat,$lng,\"$nama\")'>Show in Map</button></td></tr>";
+ echo "<tr><td>$id</td><td>$nama</td><td>$lat</td><td>$lng</td><td><button onclick='initialize($lat,$lng,\"$nama\",\"$alamat\")' class='btn btn-primary'><i class='glyphicon glyphicon-map-marker'></i> Maps</button></td></tr>";
 }
 ?>
   </tbody>
  </table>
- <div id='map-canvas'>
+ </div>
+ <div class="col-sm-8">
+ <div id='map-canvas' style="width: 875px; height: 425px;"></div>
  </div>
 </body>
