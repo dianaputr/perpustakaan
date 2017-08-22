@@ -41,6 +41,7 @@ $query->execute();
 			 <div class="panel-body">
 			    <a href="create.php" class="btn btn-primary"><i class="glyphicon glyphicon-plus "></i> Tambah Penerbit Buku</a>
 			    <a class="btn btn-primary" href="../home2.php"><i class="glyphicon glyphicon-home"></i> Home </a>
+			    <a class="btn btn-primary" href="map.php"><i class="glyphicon glyphicon-map-marker"></i> Lihat Maps </a>
 			    <div>&nbsp;</div>
 			    <div class="col-sm-10">
 				<table class="table table-bordered table-stripped table-hover">
@@ -50,6 +51,8 @@ $query->execute();
 					<th>No</th>
 					<th>Nama Penerbit</th>
 					<th>Alamat Penerbit</th>
+					<th>Latitude</th>
+					<th>Longitude</th>
 					<th>Tahun Penerbitan</th>
 					<th>Aksi</th>
 				</tr>
@@ -58,15 +61,23 @@ $query->execute();
 					<td style="text-align: center"><?= $i ?></td>
 					<td><?= $value['nama'] ?></td>
 					<td><?= $value['alamat'] ?></td>
+					<td><?= $value['lat'] ?></td>
+					<td><?= $value['lng'] ?></td>
 					<td><?= $value['tahun_terbit'] ?></td>
 					<td>
-						<a href="update.php?id=<?= $value['id'] ;?>">
-						<span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="delete.php?id=<?= $value['id']; ?>">
-						<span class="glyphicon glyphicon-trash"></span></a>
-						<a href="view.php?id=<?= $value['id']; ?>">
-						<span class="glyphicon glyphicon-list"></span></a>
-
+					<?php session_start();
+								if($_SESSION['role'] == 1){ ?>
+									<a href="update.php?id=<?= $value['id'] ;?>">
+									<span class="glyphicon glyphicon-pencil"></span>
+									</a>
+									<a href="delete.php?id=<?= $value['id']; ?>">
+									<span class="glyphicon glyphicon-trash"></span></a>
+									<a href="view.php?id=<?= $value['id']; ?>">
+									<span class="glyphicon glyphicon-list"></span></a>
+									<?php } elseif ($_SESSION['role'] == 2) { ?>
+									<a href="view.php?id=<?= $value['id']; ?>">
+									<span class="glyphicon glyphicon-list"></span></a>
+								<?php } ?>
 					</td>
 				</tr>
 				<?php $i++; endforeach; ?>

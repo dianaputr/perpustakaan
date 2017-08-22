@@ -47,6 +47,7 @@ if (isset($_SESSION['username'])) {
 
         <li><a href="http://localhost/ppi-perpustakaan/buku/index.php">Buku</a></li>
         <li><a href="http://localhost/ppi-perpustakaan/peminjaman/index.php">Peminjaman</a></li>
+        <li><a href="http://localhost/ppi-perpustakaan/penerbit/index.php">Penerbit</a></li>
         <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="http://localhost/ppi-perpustakaan/logout.php"><span class="glyphicon glyphicon-log-out"></span>  Logout</a></li></ul>
         <?php } ?>
@@ -59,11 +60,7 @@ if (isset($_SESSION['username'])) {
 </body>
 </html>
 
-<?php 
 
-print_r($_SESSION);
-
-?>
 
 <?php } else {
   session_destroy();
