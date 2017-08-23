@@ -50,7 +50,7 @@ $data = $query->fetch();
 		</table>
 		<div>
 		<a  href="index.php"><h4>Daftar Penerbit</h4></a>
-		<a href="map.php?id=<?= $value['id']; ?>"><h4>Lihat peta</h4></a>
+		<a href="maps.php?id=<?= $value['id']; ?>"><h4>Lihat peta</h4></a>
 		</div>
 	</div>
 	</div>

@@ -35,12 +35,16 @@
 <div class="panel panel-primary">
       <div class="panel-heading"><h1>Maps Penerbit Buku</h1>
       </div>
+      <div class="panel-body">
+        <a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-list "></i> Daftar Penerbit</a>
   </div>
   <div class="row">
   <div class="col-sm-4">
- <table border="2">
+ <table class="table table-bordered table-stripped table-hover">
   <thead>
-   <td>ID</td><td>Nama</td><td>Latitude</td><td>Longitude</td><td>Tool</td>
+  <tr>
+   <th>No</th><th>Nama</th><th>Latitude</th><th>Longitude</th><th>Tool</th>
+   </tr>
   </thead>
   <tbody>
 
@@ -50,21 +54,28 @@
 include 'koneksi.php';
 
 $query = $db->prepare("SELECT * FROM penerbit");
- $query->execute();
+$query->execute();
+$i=1;
 foreach ($query->fetchAll() as $data) {
 
- $id = $data['id'];
+ $no = $i;
  $nama = $data['nama'];
  $alamat = $data['alamat'];
  $lat = $data['lat'];
  $lng = $data['lng'];
- echo "<tr><td>$id</td><td>$nama</td><td>$lat</td><td>$lng</td><td><button onclick='initialize($lat,$lng,\"$nama\",\"$alamat\")' class='btn btn-primary'><i class='glyphicon glyphicon-map-marker'></i> Maps</button></td></tr>";
+ echo "<tr><td>$no</td><td>$nama</td><td>$lat</td><td>$lng</td><td><button onclick='initialize($lat,$lng,\"$nama\",\"$alamat\")' class='btn btn-primary'><i class='glyphicon glyphicon-map-marker'></i> Maps</button></td></tr>";
+
+ $i++;
 }
+
+
 ?>
+
   </tbody>
  </table>
  </div>
  <div class="col-sm-8">
- <div id='map-canvas' style="width: 875px; height: 425px;"></div>
+ <div id='map-canvas' style="width: 825px; height: 400px;"></div>
+ </div>
  </div>
 </body>
