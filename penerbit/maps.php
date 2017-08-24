@@ -75,7 +75,9 @@ foreach ($query->fetchAll() as $data) {
  </table>
  </div>
  <div class="col-sm-8">
- <div id='map-canvas' style="width: 825px; height: 400px;"></div>
+ <div id='map-canvas' style="width: 825px; height: 375px;"></div>
+ </div>
+ </div>
  </div>
  </div>
 </body>
